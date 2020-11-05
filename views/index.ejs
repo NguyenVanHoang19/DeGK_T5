@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linh Kiện</title>
+</head>
+<body>
+    <p>Thêm Linh Kiện</p>
+    <form action="/api/addLinhKien" method="POST">
+        <input type="text" name="maLinhKien" placeholder="Nhập mã linh kiện">
+        <br/><br/>
+        <input type="text" name="ten" placeholder="Nhập tên linh kiện">
+        <br/><br/>
+        <input type="text" name="donViTinh" placeholder="Nhập đơn vị tính">
+        <br/><br/>
+        <input type="text" name="gia" placeholder="Nhập giá">
+        <br/><br/>
+        <input type="text" name="thongSoKyThuat" placeholder="Nhập thông số kỹ thuật">
+        <br/><br/>
+        <input type="submit" value="Thêm sinh viên">
+    </form>
+    <p>Danh Sách Linh Kiện</p>
+    <table border="1">
+        <tr>
+            <th>Mã Linh Kiện</th>
+            <th>Tên linh kiện</th>
+            <th>Đơn vị tính</th>
+            <th>Giá</th>
+            <th>Thông số kỹ thuật</th>
+        </tr>
+        <% for(let i=0 ; i< linhKien.length; i++){%>
+        <tr>
+            <td><%= linhKien[i].maLinhKien %></td>
+            <td><%= linhKien[i].ten %></td>
+            <td><%= linhKien[i].donViTinh %></td>
+            <td><%= linhKien[i].gia %></td>
+            <td><%= linhKien[i].thongSoKyThuat %></td>
+        </tr>
+        <%}%>
+    </table>
+</body>
+</html>
