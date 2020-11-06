@@ -62,7 +62,7 @@ app.post("/api/addLinhKien",(req,res)=>{
     });
 });
 // delete linh kien
-app.post("deleteLinhKien",(req,res)=>{
+app.post("/deleteLinhKien",(req,res)=>{
     const maLinhKien = req.body.maLinhKien;
     const paramsDeleteLinhKien= {
         TableName : "LinhKien",
