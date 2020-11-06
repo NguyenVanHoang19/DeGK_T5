@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <p>Cập nhật thông tin linh kiện có mã <%= linhKien.maLinhKien %></p>
+    <form action="/updateLinhKien" method="POST">
+        <input type="text" name="ten" value="<%= linhKien.ten%>">
+        <br/><br/>
+        <input type="text" name="donViTinh" value="<%= linhKien.donViTinh %>">
+        <br/><br/>
+        <input type="text" name="gia" value="<%= linhKien.gia %>">
+        <br/><br/>
+        <input type="text" name="thongSoKyThuat" value="<%= linhKien.thongSoKyThuat %>">
+        <br/><br/>
+        <input type="hidden" name="maLinhKien" value="<%= linhKien.maLinhKien %>">
+        <input type="submit" value="Cập nhật linh kiện">
+    </form>
+</body>
+</html>

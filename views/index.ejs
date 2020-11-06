@@ -20,6 +20,12 @@
         <br/><br/>
         <input type="submit" value="Thêm sinh viên">
     </form>
+    <P>Tìm kiếm linh kiện theo tên</P>
+    <form action="/timKiemLinhKienTheoTen" method="POST">
+        <input type="text" name="ten" placeholder="Nhập vào tên cần tìm kiếm">
+        <input type="submit" value="Tìm kiếm">
+    </form>
+
     <p>Danh Sách Linh Kiện</p>
     <table border="1">
         <tr>
@@ -28,6 +34,8 @@
             <th>Đơn vị tính</th>
             <th>Giá</th>
             <th>Thông số kỹ thuật</th>
+            <th>Cập nhật</th>
+            <th>Xóa</th>
         </tr>
         <% for(let i=0 ; i< linhKien.length; i++){%>
         <tr>
@@ -36,6 +44,22 @@
             <td><%= linhKien[i].donViTinh %></td>
             <td><%= linhKien[i].gia %></td>
             <td><%= linhKien[i].thongSoKyThuat %></td>
+            <td>
+                <form action="/updateForm" method="POST">
+                    <input type="hidden" name="maLinhKien" value="<%= linhKien[i].maLinhKien %>">
+                    <input type="hidden" name="ten" value="<%= linhKien[i].ten %>">
+                    <input type="hidden" name="donViTinh" value="<%= linhKien[i].donViTinh %>">
+                    <input type="hidden" name="gia" value="<%= linhKien[i].gia %>">
+                    <input type="hidden" name="thongSoKyThuat" value="<%= linhKien[i].thongSoKyThuat %>">
+                    <input type="submit" value="Cập nhật">
+                </form>
+            </td>
+            <td>
+                <form action="/deleteLinhKien" method="POST">
+                    <input type="hidden" value="<%= linhKien[i].maLinhKien %>">
+                    <input type="submit" value="Xóa">
+                </form>
+            </td>
         </tr>
         <%}%>
     </table>
