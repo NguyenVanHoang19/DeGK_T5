@@ -56,7 +56,7 @@
             </td>
             <td>
                 <form action="/deleteLinhKien" method="POST">
-                    <input type="hidden" value="<%= linhKien[i].maLinhKien %>">
+                    <input type="hidden" name="maLinhKien" value="<%= linhKien[i].maLinhKien %>">
                     <input type="submit" value="Xóa">
                 </form>
             </td>

@@ -61,6 +61,23 @@ app.post("/api/addLinhKien",(req,res)=>{
            // return res.json({msg:"Thêm thành công!!!!"});
     });
 });
+// delete linh kien
+app.post("deleteLinhKien",(req,res)=>{
+    const maLinhKien = req.body.maLinhKien;
+    const paramsDeleteLinhKien= {
+        TableName : "LinhKien",
+        Key : {
+            "maLinhKien" : maLinhKien,
+        },
+    };
+    dynamoDB.delete(paramsDeleteLinhKien,(error,data)=>{
+        if(error)
+            console.log(error)
+        else  
+            res.redirect("/");
+    });
+});
+
 // render form update
 app.post("/updateForm",(req,res)=>{
     const {maLinhKien,ten,donViTinh,gia,thongSoKyThuat} = req.body;
